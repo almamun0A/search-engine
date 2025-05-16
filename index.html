@@ -3,98 +3,94 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tiya Search</title>
-    <link rel="shortcut icon" href="images/tiyaa.jpg" type="images/x-icon">
-    
+    <title> Search Engine</title>
     <style>
         body {
-            font-family: sans-serif;
-            margin: 0;
-            background-color: #f4f4f4;
+            font-family: Arial, sans-serif;
             display: flex;
             justify-content: center;
             align-items: center;
-            min-height: 100vh;
+            height: 100vh;
+            background-color: #f8f9fa;
         }
-
         .container {
-            background-color: #fff;
-            padding: 30px;
+            background-color: white;
+            padding: 20px;
             border-radius: 8px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
             text-align: center;
         }
-
-        h1 {
-            color: #333;
-            margin-bottom: 20px;
-        }
-
-        .search-box {
-            display: flex;
-            width: 400px;
-            max-width: 90%;
-            margin-bottom: 20px;
+        input {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
             border: 1px solid #ccc;
             border-radius: 5px;
-            overflow: hidden;
         }
-
-        input[type="text"] {
-            flex-grow: 1;
-            padding: 10px;
-            border: none;
-            font-size: 16px;
+        .suggestions {
+            margin-top: 10px;
+            text-align: left;
         }
-
-        button {
-            background-color: #007bff;
-            color: white;
-            border: none;
-            padding: 10px 15px;
-            font-size: 16px;
+        .suggestion {
+            padding: 5px;
+            background-color: #e9ecef;
+            border-radius: 5px;
             cursor: pointer;
         }
-
-        button:hover {
-            background-color: #0056b3;
+        .suggestion:hover {
+            background-color: #d6d8db;
         }
-        #nipa{color:rgb(0, 128, 21);}
+        #n {
+            color: rgb(25, 0, 255);
+            font-weight: bold;
+        }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>T<span id="nipa">iiiiiiiiiiiiii</span>iya </h1>
-        <div class="search-box">
-            <input type="text" id="searchInput" placeholder="What you want to search?">
-            <button type="submit" id="searchButton">Search</button>
-        </div>
-        <p style="font-size: small; color: #777;"> Ai based Search Engine  </p>
-    </div>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const searchInput = document.getElementById('searchInput');
-            const searchButton = document.getElementById('searchButton');
+<div class="container">
+    <h1>G<span id="n">OOO</span>Gleee </h1>
+    <input type="text" id="searchInput" placeholder="Type a AnyThing........" onkeyup="suggestFood()">
+    <div class="suggestions" id="suggestionBox"></div>
+</div>
 
-            searchButton.addEventListener('click', function() {
-                const query = searchInput.value.trim();
-                if (query) {
-                    console.log('Searching for:', query);
-                   
-                } else {
-                    alert('Please enter a search term.');
+<script>
+    const foodList = ["Pizza", "Burger", "Sushi", "Pasta", "Tacos", "Salad", "Steak", "Ice Cream", "Chocolate", "Smoothie","Fruit Salad", "Sandwich", "Dumplings", "Curry", "Noodles", "Fried Rice", "Grilled Cheese", "Hot Dog", "Pancakes", "Waffles" ,"Brownies", "Cookies", "Cupcakes", "Muffins", "Cheesecake", "Pudding", "Pie", "Tiramisu", "Macarons", "Crepes", "Bagel", "Samosa", "Spring Rolls", "Biryani", "Paella", "Ramen", "Pho", "Chili", "Quiche" ,"Falafel", "Hummus", "Guacamole", "Bruschetta", "Nachos", "Chowder", "Clam Bake", "Ceviche", "Tortilla", "Pita Bread", "Sushi Roll", "Tempura", "Kebab", "Gyro", "Burrito", "Quesadilla", "Fajitas", "Chimichanga" ,"Pasta Salad", "Caesar Salad", "Greek Salad", "Caprese Salad", "Coleslaw", "Potato Salad", "Fruit Tart", "Cheese Platter", "Charcuterie Board", "Antipasto" ,"Fondue", "Ratatouille", "Moussaka", "Goulash", "Borscht", "Cabbage Rolls", "Stuffed Peppers", "Zucchini Noodles", "am", "zam", "samosa", "biryani", "pasta", "pizza", "burger", "sushi", "tacos", "salad", "steak", "ice cream", "chocolate", "smoothie"];
+    const suggestionBox = document.getElementById("suggestionBox");
+
+    function suggestFood() {
+        const input = document.getElementById("searchInput").value.toLowerCase();
+        const suggestionBox = document.getElementById("suggestionBox");
+        suggestionBox.innerHTML = "";
+
+        if (input) {
+            foodList.forEach(food => {
+                if (food.toLowerCase().includes(input)) {
+                    const div = document.createElement("div");
+                    div.classList.add("suggestion");
+                    div.textContent = food;
+                    div.onclick = () => searchFoodOnGoogle(food);
+                    suggestionBox.appendChild(div);
                 }
             });
+        }
+    }
 
-           
-            searchInput.addEventListener('keypress', function(event) {
-                if (event.key === 'Enter') {
-                    searchButton.click(); 
-                    t
-                }
-            });
-        });
-    </script>
+  
+    document.getElementById("searchInput").addEventListener("keypress", function(event) {
+    if (event.key === "Enter") {
+        const foodName = this.value.trim();
+        if (foodName) {
+            searchFoodOnGoogle(foodName);
+        }
+    }
+});
+
+function searchFoodOnGoogle(foodName) {
+    const searchUrl = `https://www.google.com/search?q=${encodeURIComponent(foodName)}`;
+    window.open(searchUrl, "_blank");
+}
+</script>
+
 </body>
 </html>
