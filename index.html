@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nipa Search</title>
-    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="images/nipa.png" type="images/x-icon">
     
     <style>
         body {
@@ -81,18 +81,17 @@
                 const query = searchInput.value.trim();
                 if (query) {
                     console.log('Searching for:', query);
-                    // In a real application, you would send this 'query'
-                    // to a server for processing and display results.
+                   
                 } else {
                     alert('Please enter a search term.');
                 }
             });
 
-            // Optional: Allow searching when the Enter key is pressed in the input field
+           
             searchInput.addEventListener('keypress', function(event) {
                 if (event.key === 'Enter') {
                     searchButton.click(); 
-                    // Trigger the button's click event
+                    t
                 }
             });
         });
