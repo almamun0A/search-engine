@@ -17,9 +17,9 @@
         }
         .container {
             background-color: rgb(206, 218, 215);
-            padding: 60px;
-            border-radius: 9px;
-            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+            padding: 150px;
+            border-radius: 20px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.603);
             text-align: center;
         }
         input {
@@ -74,7 +74,7 @@
 </div>
 
 <script>
-    const foodList = ["Pizza", "Burger", "Sushi", "Pasta", "Tacos", "Salad", "Steak", "Ice Cream", "Chocolate", "Smoothie","Fruit Salad", "Sandwich", "Dumplings", "Curry", "Noodles", "Fried Rice", "Grilled Cheese", "Hot Dog", "Pancakes", "Waffles" ,"Brownies", "Cookies", "Cupcakes", "Muffins", "Cheesecake", "Pudding", "Pie", "Tiramisu", "Macarons", "Crepes", "Bagel", "Samosa", "Spring Rolls", "Biryani", "Paella", "Ramen", "Pho", "Chili", "Quiche" ,"Falafel", "Hummus", "Guacamole", "Bruschetta", "Nachos", "Chowder", "Clam Bake", "Ceviche", "Tortilla", "Pita Bread", "Sushi Roll", "Tempura", "Kebab", "Gyro", "Burrito", "Quesadilla", "Fajitas", "Chimichanga" ,"Pasta Salad", "Caesar Salad", "Greek Salad", "Caprese Salad", "Coleslaw", "Potato Salad", "Fruit Tart", "Cheese Platter", "Charcuterie Board", "Antipasto" ,"Fondue", "Ratatouille", "Moussaka", "Goulash", "Borscht", "Cabbage Rolls", "Stuffed Peppers", "Zucchini Noodles", "am", "zam", "samosa", "biryani", "pasta", "pizza", "burger", "sushi", "tacos", "salad", "steak", "ice cream", "chocolate", "smoothie","facebook", "instagram", "twitter", "linkedin", "snapchat", "whatsapp", "tiktok", "youtube", "pinterest", "reddit", "tumblr", "flickr", "quora", "vimeo", "discord", "telegram", "weibo", "baidu", "vk", "yahoo", "bing", "duckduckgo", "ask", "aol", "myspace", "friendster", "hi5", "orkut", "google+", "meerkat", "periscope", "blab", "livestream", "ustream", "dailymotion", "vimeo", "twitch", "mixcloud", "soundcloud", "spotify", "pandora", "apple music", "google play music", "amazon music", "deezer", "tidal", "iheart radio", "slacker radio", "last.fm", "8tracks", "datpiff", "audiomack", "spinrilla", "livemixtapes", "soundclick", "bandcamp", "reverbnation", "jamendo", "cdbaby", "tunecore", "distrokid", "landr", "amuse", "routeNote"];
+    const foodList = ["Pizza", "facebook", "google", "Burger", "Sushi", "Pasta", "Tacos", "Salad", "Steak", "Ice Cream", "Chocolate", "Smoothie","Fruit Salad", "Sandwich", "Dumplings", "Curry", "Noodles", "Fried Rice", "Grilled Cheese", "Hot Dog", "Pancakes", "Waffles" ,"Brownies", "Cookies", "Cupcakes", "Muffins", "Cheesecake", "Pudding", "Pie", "Tiramisu", "Macarons", "Crepes", "Bagel", "Samosa", "Spring Rolls", "Biryani", "Paella", "Ramen", "Pho", "Chili", "Quiche" ,"Falafel", "Hummus", "Guacamole", "Bruschetta", "Nachos", "Chowder", "Clam Bake", "Ceviche", "Tortilla", "Pita Bread", "Sushi Roll", "Tempura", "Kebab", "Gyro", "Burrito", "Quesadilla", "Fajitas", "Chimichanga" ,"Pasta Salad", "Caesar Salad", "Greek Salad", "Caprese Salad", "Coleslaw", "Potato Salad", "Fruit Tart", "Cheese Platter", "Charcuterie Board", "Antipasto" ,"Fondue", "Ratatouille", "Moussaka", "Goulash", "Borscht", "Cabbage Rolls", "Stuffed Peppers", "Zucchini Noodles", "am", "zam", "samosa", "biryani", "pasta", "pizza", "burger", "sushi", "tacos", "salad", "steak", "ice cream", "chocolate", "smoothie","facebook", "instagram", "twitter", "linkedin", "snapchat", "whatsapp", "tiktok", "youtube", "pinterest", "reddit", "tumblr", "flickr", "quora", "vimeo", "discord", "telegram", "weibo", "baidu", "vk", "yahoo", "bing", "duckduckgo", "ask", "aol", "myspace", "friendster", "hi5", "orkut", "google+", "meerkat", "periscope", "blab", "livestream", "ustream", "dailymotion", "vimeo", "twitch", "mixcloud", "soundcloud", "spotify", "pandora", "apple music", "google play music", "amazon music", "deezer", "tidal", "iheart radio", "slacker radio", "last.fm", "8tracks", "datpiff", "audiomack", "spinrilla", "livemixtapes", "soundclick", "bandcamp", "reverbnation", "jamendo", "cdbaby", "tunecore", "distrokid", "landr", "amuse", "routeNote"];
     const suggestionBox = document.getElementById("suggestionBox");
 
     function suggestFood() {
