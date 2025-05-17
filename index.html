@@ -19,6 +19,10 @@
          placeholder="  Search anything..." onkeyup="suggestFood()">
         <div class="suggestions" id="suggestionBox"></div>
     </div>
+    <div class="button-group">
+        <button class="search-btn" onclick="googleSearch()">Google Search</button>
+        <button class="lucky-btn" onclick="feelingLucky()">I'm Feeling Lucky</button>
+    </div>
 </div>
 
 <script>
@@ -54,6 +58,20 @@
     function searchFoodOnGoogle(foodName) {
         const searchUrl = `https://www.google.com/search?q=${encodeURIComponent(foodName)}`;
         window.open(searchUrl, "_blank");
+    }
+
+    function googleSearch() {
+        const query = document.getElementById("searchInput").value.trim();
+        if (query) {
+            window.open(`https://www.google.com/search?q=${encodeURIComponent(query)}`, "_blank");
+        }
+    }
+
+    function feelingLucky() {
+        const query = document.getElementById("searchInput").value.trim();
+        if (query) {
+            window.open(`https://www.google.com/search?q=${encodeURIComponent(query)}&btnI`, "_blank");
+        }
     }
 </script>
 
