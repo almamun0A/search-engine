@@ -20,17 +20,19 @@
         <div class="suggestions" id="suggestionBox"></div>
     </div>
     <div class="button-group">
-        <button class="search-btn" onclick="googleSearch()">Google Search</button>
-        <button class="lucky-btn" onclick="feelingLucky()">I'm Feeling Lucky</button>
+        <button class="search-btn" onclick="googleSearch()">Toogle Search</button>
+        <button class="lucky-btn" onclick="feelingLucky()">I'm Feeling UnLucky</button>
     </div>
 </div>
 
 <script>
-    const foodList = [ "facebook", "twitter", "instagram", "snapchat", "tiktok", "youtube", "whatsapp", "telegram", "linkedin", "pinterest", "reddit", "tumblr", "flickr", "quora", "vimeo", "weibo", "baidu", "vk", "discord", "twitch" , "foursquare", "meetup", "periscope", "clubhouse", "signal", "line", "kik", "wechat", "yahoo", "myspace", "badoo", "okcupid", "happn", "tinder", "bumble", "skout", "plentyoffish", "grindr", "her", "hinge" , "ok.ru", "mixi", "renren", "douban", "qq", "sina weibo", "tencent weibo", "kaixin001", "orkut", "hi5", "friendster", "myyearbook", "xanga", "livejournal", "blogger", "wordpress", "tumblr", "bandcamp", "soundcloud", "spotify", "apple music", "pandora", "deezer", "tidal", "google play music", "amazon music", "youtube music", "iheart radio", "last.fm", "mixcloud", "reverbnation", "datpiff", "audiomack", "spinrilla", "datpiff" , "8tracks" , "hearthis.at" , "jamendo" , "bandzoogle" , "cdbaby" , "distrokid" , "tunecore" , "landr" , "songtradr" , "reverbnation" , "musicoin" , "audius" ];
+    const foodList = [ "facebook", "twitter", "instagram", "snapchat", "tiktok", "youtube", "whatsapp", "telegram", "linkedin", "pinterest", "reddit", "tumblr", "flickr", "quora", "vimeo", "weibo", "baidu", "vk", "discord", "twitch" , "foursquare", "meetup", "periscope", "clubhouse", "signal", "line", "kik", "wechat", "yahoo", "myspace", "badoo", "okcupid", "happn", "tinder", "bumble", "skout", "plentyoffish", "grindr", "her", "hinge" , "ok.ru", "mixi", "renren", "douban", "qq", "sina weibo", "tencent weibo", "kaixin001", "orkut", "hi5", "friendster", "myyearbook", "xanga", "livejournal", "blogger", "wordpress", "tumblr", "bandcamp", "soundcloud", "spotify", "apple music", "pandora", "deezer", "tidal", "google play music", "amazon music", "youtube music", "iheart radio", "last.fm", "mixcloud", "reverbnation", "datpiff", "audiomack", "spinrilla", "datpiff" , "8tracks" , "hearthis.at" , "jamendo" , "bandzoogle" , "cdbaby" , "distrokid" , "tunecore" , "landr" , "songtradr" , "reverbnation" , "musicoin" , "audius" ,"aamp" , "soundclick" , "newgrounds" , "bandcamp" , "audiomack" , "spinrilla" , "datpiff" , "8tracks" , "hearthis.at" , "jamendo" , "bandzoogle" , "cdbaby" , "distrokid" , "tunecore" , "landr" , "songtradr" , "reverbnation" , "musicoin" , "audius", "soundclick", "newgrounds", "bandcamp", "audiomack", "spinrilla", "datpiff", "8tracks", "hearthis.at", "jamendo", "bandzoogle", "cdbaby", "distrokid", "tunecore", "landr", "songtradr", "reverbnation", "musicoin", "audius"];
     const suggestionBox = document.getElementById("suggestionBox");
+    const searchInput = document.getElementById("searchInput");
+    const footer = document.querySelector('.footer');
 
     function suggestFood() {
-        const input = document.getElementById("searchInput").value.toLowerCase();
+        const input = searchInput.value.toLowerCase();
         suggestionBox.innerHTML = "";
 
         if (input) {
@@ -46,7 +48,15 @@
         }
     }
 
-    document.getElementById("searchInput").addEventListener("keypress", function(event) {
+    searchInput.addEventListener("focus", function() {
+        if (footer) footer.style.display = "none";
+    });
+
+    searchInput.addEventListener("blur", function() {
+        if (footer) footer.style.display = "";
+    });
+
+    searchInput.addEventListener("keypress", function(event) {
         if (event.key === "Enter") {
             const foodName = this.value.trim();
             if (foodName) {
@@ -61,14 +71,14 @@
     }
 
     function googleSearch() {
-        const query = document.getElementById("searchInput").value.trim();
+        const query = searchInput.value.trim();
         if (query) {
             window.open(`https://www.google.com/search?q=${encodeURIComponent(query)}`, "_blank");
         }
     }
 
     function feelingLucky() {
-        const query = document.getElementById("searchInput").value.trim();
+        const query = searchInput.value.trim();
         if (query) {
             window.open(`https://www.google.com/search?q=${encodeURIComponent(query)}&btnI`, "_blank");
         }
