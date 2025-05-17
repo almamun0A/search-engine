@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> Search Engine</title>
+    <title>Search Engine</title>
     <link rel="shortcut icon" href="images/t.png" type="image/x-icon">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
     <link rel="stylesheet" href="cssFiles/style.css">
@@ -11,23 +11,22 @@
 <body> 
 
 <div class="container">
-    <img src="images/t.png" alt="toogleee" style="width: 100px; height: 100px;">
-    <h1>T<span id="n">00000</span>gleee </h1>
-    <div style="position: relative; width: 100%;">
+    <img src="images/t.png" alt="toogleee">
+    <h1>t<span id="n">ooo</span>gle</h1>
+    <div class="search-area">
         <i class="fa fa-search search-icon"></i>
         <input type="text" id="searchInput" class="search-form" 
-         placeholder="  AnyThing...you want ....." onkeyup="suggestFood()">
+         placeholder="  Search anything..." onkeyup="suggestFood()">
+        <div class="suggestions" id="suggestionBox"></div>
     </div>
-    <div class="suggestions" id="suggestionBox"></div>
 </div>
 
 <script>
-    const foodList = [ "facebook", "twitter", "instagram", "snapchat", "tiktok", "youtube", "whatsapp", "telegram", "linkedin", "pinterest", "reddit", "tumblr", "flickr", "quora", "vimeo", "weibo", "baidu", "vk", "discord", "twitch" , "foursquare", "meetup", "periscope", "clubhouse", "signal", "line", "kik", "wechat", "yahoo", "myspace", "badoo", "okcupid", "happn", "tinder", "bumble", "skout", "plentyoffish", "grindr", "her", "hinge" , "ok.ru", "mixi", "renren", "douban", "qq", "sina weibo", "tencent weibo", "kaixin001", "orkut", "hi5", "friendster", "myyearbook", "xanga", "livejournal", "blogger", "wordpress", "tumblr" "bandcamp", "soundcloud", "spotify", "apple music", "pandora", "deezer", "tidal", "google play music", "amazon music", "youtube music", "iheart radio", "last.fm", "mixcloud", "reverbnation", "datpiff", "audiomack", "spinrilla", "datpiff" , "8tracks" , "hearthis.at" , "jamendo" , "bandzoogle" , "cdbaby" , "distrokid" , "tunecore" , "landr" , "songtradr" , "reverbnation" , "musicoin" , "audius" ,  ];
+    const foodList = [ "facebook", "twitter", "instagram", "snapchat", "tiktok", "youtube", "whatsapp", "telegram", "linkedin", "pinterest", "reddit", "tumblr", "flickr", "quora", "vimeo", "weibo", "baidu", "vk", "discord", "twitch" , "foursquare", "meetup", "periscope", "clubhouse", "signal", "line", "kik", "wechat", "yahoo", "myspace", "badoo", "okcupid", "happn", "tinder", "bumble", "skout", "plentyoffish", "grindr", "her", "hinge" , "ok.ru", "mixi", "renren", "douban", "qq", "sina weibo", "tencent weibo", "kaixin001", "orkut", "hi5", "friendster", "myyearbook", "xanga", "livejournal", "blogger", "wordpress", "tumblr", "bandcamp", "soundcloud", "spotify", "apple music", "pandora", "deezer", "tidal", "google play music", "amazon music", "youtube music", "iheart radio", "last.fm", "mixcloud", "reverbnation", "datpiff", "audiomack", "spinrilla", "datpiff" , "8tracks" , "hearthis.at" , "jamendo" , "bandzoogle" , "cdbaby" , "distrokid" , "tunecore" , "landr" , "songtradr" , "reverbnation" , "musicoin" , "audius" ];
     const suggestionBox = document.getElementById("suggestionBox");
 
     function suggestFood() {
         const input = document.getElementById("searchInput").value.toLowerCase();
-        const suggestionBox = document.getElementById("suggestionBox");
         suggestionBox.innerHTML = "";
 
         if (input) {
@@ -43,21 +42,83 @@
         }
     }
 
-  
     document.getElementById("searchInput").addEventListener("keypress", function(event) {
-    if (event.key === "Enter") {
-        const foodName = this.value.trim();
-        if (foodName) {
-            searchFoodOnGoogle(foodName);
+        if (event.key === "Enter") {
+            const foodName = this.value.trim();
+            if (foodName) {
+                searchFoodOnGoogle(foodName);
+            }
         }
-    }
-});
+    });
 
-function searchFoodOnGoogle(foodName) {
-    const searchUrl = `https://www.google.com/search?q=${encodeURIComponent(foodName)}`;
-    window.open(searchUrl, "_blank");
-}
+    function searchFoodOnGoogle(foodName) {
+        const searchUrl = `https://www.google.com/search?q=${encodeURIComponent(foodName)}`;
+        window.open(searchUrl, "_blank");
+    }
 </script>
+
+<footer class="footer">
+    <div class="footer-country">India</div>
+    <div class="footer-links">
+        <div>
+            <a href="#">About</a>
+            <a href="#">Advertising</a>
+            <a href="#">Business</a>
+            <a href="#">How Search works</a>
+        </div>
+        <div>
+            <a href="#">Privacy</a>
+            <a href="#">Terms</a>
+            <a href="#">Settings</a>
+        </div>
+    </div>
+</footer>
+
+<style>
+.footer {
+    width: 100%;
+    background: #f2f2f2;
+    border-top: 1px solid #e4e4e4;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    font-size: 15px;
+    color: #5f6368;
+    padding: 10px 0 0 0;
+    z-index: 100;
+}
+.footer-country {
+    padding: 8px 24px;
+    border-bottom: 1px solid #e4e4e4;
+    background: #f2f2f2;
+}
+.footer-links {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding: 8px 24px;
+    background: #f2f2f2;
+}
+.footer-links a {
+    color: #5f6368;
+    text-decoration: none;
+    margin-right: 20px;
+    font-size: 14px;
+}
+.footer-links a:last-child {
+    margin-right: 0;
+}
+@media (max-width: 600px) {
+    .footer-links {
+        flex-direction: column;
+        gap: 8px;
+        padding: 8px 10px;
+    }
+    .footer-country {
+        padding: 8px 10px;
+    }
+}
+</style>
 
 </body>
 </html>
